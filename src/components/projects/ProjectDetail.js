@@ -79,7 +79,13 @@ render(){
           return(
               <div key={ index }>
               {/* ... make each task's title a link that goes to the task details page */}
-                  <Link to={`/projectsList/${this.state._id}/tasks/${task._id}`}> 
+                  <Link    to={{
+                    pathname: `/tasks/${task._id}`,
+                    state: {
+                      theprojectId: this.state._id
+                    }
+                  }} > 
+               
                       { task.title }
                   </Link>
               </div>

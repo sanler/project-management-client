@@ -5,7 +5,7 @@ import AddProject from './AddProject';
 
 
 
-class Allbeers extends Component{
+class ProjectList extends Component{
 
     constructor(props){
         super(props);
@@ -42,6 +42,14 @@ class Allbeers extends Component{
                 
                 <div>
                     <h1><Link to={`/ProjectList/${oneproject._id}`}>{oneproject.title}</Link></h1>
+                    {/* 🥁 added so the tasks can be displayed:  🥁 */}
+                    <ul>
+                  { oneproject.tasks.map((task, index) => {
+                    return <li key={index}><Link to={`/ProjectList/${oneproject._id}`}>{task.title}</Link></li>
+                  }) }
+                </ul>  
+
+                   
                     <h6><b>Description:</b>{oneproject.description}</h6>
                 </div>
                 </div>
@@ -56,4 +64,4 @@ class Allbeers extends Component{
 
 }
 
-export default Allbeers;
+export default ProjectList;
